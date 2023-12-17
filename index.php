@@ -12,19 +12,20 @@
 <body>
 
     <div id></div>
-    <div id="botonAnterior"></div>
-    <div id="botonSiguiente2"></div>
+
 
     <div id="cabecero"></div>
+    <div id="opcionA" class="opcion" onmouseover="cambiarImagenFondo('./elementos/materiales/opa_on.png')"></div>
+    <div id="opcionB" class="opcion" onmouseover="cambiarImagenFondo('./elementos/materiales/opb_on.png')"></div>
+    <div id="siguienteImg"></div>
+
 
     <div id="imagenEscena">
-
-        <div id="botonSiguiente"></div>
-        <!--<div id="texto"></div>-->
-
+        <div id="imagenA"></div>
     </div>
-    <div id="situaciones">
 
+    <div id="situaciones">
+<div id="botonVolver"></div>
 
     </div>
     <?php
@@ -42,6 +43,14 @@
     <script>
         var numeroDeCarpetasJS = <?php echo $numeroDeCarpetas; ?>;
         agregarSituacion(numeroDeCarpetasJS);
+
+        function cambiarImagenFondo(nuevaImagen) {
+            // Obtener el div de destino
+            var divDestino = document.getElementById('imagenA');
+
+            // Cambiar la imagen de fondo del div de destino
+            divDestino.style.backgroundImage = 'url(' + nuevaImagen + ')';
+        }
     </script>
 </body>
 

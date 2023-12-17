@@ -1,15 +1,17 @@
 const contenedorPadre = document.getElementById("situaciones");
 const imagenEscenaDiv = document.getElementById("imagenEscena");
-const botonSiguiente = document.getElementById("botonSiguiente2");
+const botonA = document.getElementById("opcionA");
+const imagenA = document.getElementById("imagenA");
 const imagenEscena = document.getElementById("imagenEscena");
-const botonAnterior = document.getElementById("botonAnterior");
-const texto = document.getElementById("texto");
+const siguienteImg = document.getElementById("siguienteImg");
+const botonB = document.getElementById("opcionB");
 
-var nuevaImg='';
+var nuevaImg = "";
 var numMax = "";
 var situacionNumID = 1;
-var escenaNumero = 0; // Inicializa con la primera escena
-var escenaActual = '1';
+var escenaNumero = 1; // Inicializa con la primera escena
+var escenaActual = "1";
+var opcion = "a";
 
 // Función para generar la URL de la imagen de fondo
 function obtenerUrlImagen(indice) {
@@ -26,11 +28,9 @@ function cambiarImagenAlEntrar() {
 
     // Construye la nueva URL con "_on" antes de ".png"
     const nuevaImagen = imagenOriginal.replace(".png", "_on.png");
-    
 
     // Establece la nueva imagen de fondo
     this.style.backgroundImage = nuevaImagen;
-    
   }
 }
 
@@ -53,52 +53,53 @@ function restaurarImagenAlSalir() {
 // Función para cambiar la imagen al hacer clic
 function cambiarImagenAlClic() {
   // Busca el div anteriormente clicado por su clase 'clicado'
-  const anteriorBoton = document.querySelector('.clicado');
+  const anteriorBoton = document.querySelector(".clicado");
 
-//Mira si hay anteriror clicado y si el clicado no es el que ahora clicamos
+  //Mira si hay anteriror clicado y si el clicado no es el que ahora clicamos
   if (anteriorBoton && anteriorBoton !== this) {
     // Si hay un div anteriormente clicado y no es el mismo, restaura su imagen y clase
-    const imgCambiada = anteriorBoton.style.backgroundImage.replace('_on.png', '.png');
-    anteriorBoton.style.backgroundImage = imgCambiada;//cambia la imagen
-    anteriorBoton.classList.remove('clicado');//Quita la clase
-    anteriorBoton.classList.add('situacion');//Añade la clase
-    anteriorBoton.dataset.clicado = 'false';//cambia el booleano clicado
+    const imgCambiada = anteriorBoton.style.backgroundImage.replace(
+      "_on.png",
+      ".png"
+    );
+    anteriorBoton.style.backgroundImage = imgCambiada; //cambia la imagen
+    anteriorBoton.classList.remove("clicado"); //Quita la clase
+    anteriorBoton.classList.add("situacion"); //Añade la clase
+    anteriorBoton.dataset.clicado = "false"; //cambia el booleano clicado
   }
 
   // Obtiene el valor del atributo data-clicado
-  const clicado = this.classList.contains('clicado');
+  const clicado = this.classList.contains("clicado");
 
   if (!clicado) {
     // Obtiene la URL original desde un atributo personalizado del elemento clicado
     const imagenOriginal = this.style.backgroundImage;
 
-    // Como imagenOriginal al clicarla con el raton y 
+    // Como imagenOriginal al clicarla con el raton y
     //este al estar encima cambia la imagen no hace falta cambiar la terminacion de la url
     const nuevaImg = imagenOriginal;
 
     // Establece la nueva imagen de fondo y clase para el div actual
     this.style.backgroundImage = nuevaImg;
-    
-     this.classList.add('clicado');//Cambia el nombre de la clase
-   
+
+    this.classList.add("clicado"); //Cambia el nombre de la clase
 
     // Establece el atributo data-clicado a trues
-    this.dataset.clicado = 'true';
+    this.dataset.clicado = "true";
   } else {
     // Si ya estaba clicado, restaura la imagen y clase original
-    const imgCambiada = this.style.backgroundImage.replace('_on.png', '.png');
+    const imgCambiada = this.style.backgroundImage.replace("_on.png", ".png");
     this.style.backgroundImage = imgCambiada;
-    this.classList.remove('clicado');
-    this.classList.add('situacion');
+    this.classList.remove("clicado");
+    this.classList.add("situacion");
 
     // Establece el atributo data-clicado a false
-    this.dataset.clicado = 'false';
+    this.dataset.clicado = "false";
   }
 
   // Actualiza el contenido de algún elemento con el ID 'texto' (deberías tener este elemento en tu HTML)
-  texto.innerHTML = this.classList.contains('clicado') ? 'Clicado' : 'No Clicado';
+  // texto.innerHTML = this.classList.contains('clicado') ? 'Clicado' : 'No Clicado';
 }
- 
 
 // crear div de Situaciones según la cantidad que haya
 function agregarSituacion(num) {
@@ -140,113 +141,135 @@ function agregarSituacion(num) {
 // Función para cargar la primera imagen de la escena actual
 function cargarPrimeraImagen(escena) {
   escenaNumero = 0;
-  const urlImagen = `./elementos/escena${escena}/escenas_0${escenaNumero}_s${escena}.png`;
+  const urlImagen = `./elementos/escena${escena}/s${escena}_0${escenaNumero}.jpg`;
   imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
   //texto.innerHTML= escena+" "+escenaNumero+urlImagen;
 }
-function numeroMax(escena){
-  switch (escena) {
-    case '1':
-      numMax = 4;
+function numeroMax(escena) {
+  switch (escena + opcion) {
+    case "1a":
+      numMax = 6;
       break;
-    case '2':
-      numMax=4;
+    case "1b":
+      numMax = 8;
       break;
-    case '3':
-      numMax = 4;
+    case "2a":
+      numMax = 3;
       break;
-    case '4':
-      numMax=4;
+    case "2b":
+      numMax = 2;
       break;
-    case '5':
+    case "3a":
+      numMax = 9;
+      break;
+    case "3b":
+      numMax = 10;
+      break;
+    case "4a":
+      numMax = 9;
+      break;
+    case "4b":
+      numMax = 6;
+      break;
+    case "5a":
+      numMax = 9;
+      break;
+    case "5b":
+      numMax = 8;
+      break;
+    case "6a":
+      numMax = 7;
+      break;
+    case "7a":
+      numMax = 6;
+      break;
+    case "8a":
+      numMax = 3;
+      break;
+    case "9a":
+      numMax = 6;
+    case "6b":
+      numMax = 8;
+      break;
+    case "7b":
       numMax = 5;
       break;
-    case '6':
-      numMax=5;
+    case "8b":
+      numMax = 6;
       break;
-    case '7':
-      numMax = 4;
+    case "9b":
+      numMax = 7;
       break;
-    case '8':
-      numMax=4;
+    default:
+      numMax = 9;
       break;
-    case '9':
-      numMax = 4;
-      break;
-    case '10':
-      numMax=4;
-      break;
-    case '11':
-      numMax = 4;
-      break;
-    case '12':
-      numMax=3;
-      break;
-    case '13':
-      numMax=5;
-      break;
-default:
-  numMax= 5;
-  break;
-    
   }
 }
 // Función para cambiar a la siguiente imagen de la escena actual
-function clickSiguienteIMG(escena) {
+function clickSiguienteIMG(escena, op) {
   numeroMax(escenaActual);
+
   if (escenaNumero < numMax) {
     escenaNumero++;
 
-    const urlImagen = `./elementos/escena${escena}/escenas_0${escenaNumero}_s${escena}.png`;
-    
-      imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
+    const urlImagen = `./elementos/escena${escena}/s${escena}${op}${escenaNumero}.jpg`;
 
-      texto.innerHTML= escena+" "+escenaNumero+urlImagen +'/n'+ numMax;
-    
-  }else{
-    
-    escenaNumero=1;
-    const urlImagen = `./elementos/escena${escena}/escenas_0${escenaNumero}_s${escena}.png`;
-    
-      
-      imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
-    }
+    imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
+  } else {
+    escenaNumero = 1;
+
+    mostrar();
+    cargarPrimeraImagen(escenaActual);
+  }
 }
-function clickAnteriorIMG(escena) {
-  if (escenaNumero > 0) {
+function clickAnteriorIMG(escena, op) {
+  if (escenaNumero > 1) {
     escenaNumero--;
-    const urlImagen = `./elementos/escena${escena}/escenas_0${escenaNumero}_s${escena}.png`;
+    const urlImagen = `./elementos/escena${escena}/s${escena}${op}${escenaNumero}.jpg`;
     if (urlImagen) {
       imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
-
-      // texto.innerHTML= escena+" "+escenaNumero+urlImagen;
     }
   }
 }
 // Función para manejar el clic en un número de escena
 function clicEnNumeroEscena() {
   escenaActual = this.id;
-  
+  mostrar();
   cargarPrimeraImagen(escenaActual);
-  
 }
-
+function ocultar() {
+  botonA.style.display = "none";
+  botonB.style.display = "none";
+  imagenA.style.display = "none";
+  siguienteImg.style.display = "block";
+}
+function mostrar() {
+  botonA.style.display = "block";
+  botonB.style.display = "block";
+  imagenA.style.display = "block";
+  siguienteImg.style.display = "none";
+}
 // Ejecuta tus funciones cuando el DOM esté listo
 document.addEventListener(
   "DOMContentLoaded",
   agregarSituacion(numeroDeCarpetasJS)
 );
-botonSiguiente.addEventListener("click", function () {
+siguienteImg.addEventListener("click", function () {
   // Llama a la función clickSiguienteIMG con los parámetros deseados
-  
-  clickSiguienteIMG(escenaActual);
+  clickSiguienteIMG(escenaActual, opcion);
 });
-imagenEscena.addEventListener("click", function () {
+
+botonA.addEventListener("click", function () {
   // Llama a la función clickSiguienteIMG con los parámetros deseados
-  clickSiguienteIMG(escenaActual);
+  opcion = "a";
+  ocultar();
+  clickSiguienteIMG(escenaActual, opcion);
 });
-botonAnterior.addEventListener("click", function () {
+botonB.addEventListener("click", function () {
+  opcion = "b";
   // Llama a la función clickSiguienteIMG con los parámetros deseados
-  clickAnteriorIMG(escenaActual);
+  ocultar();
+  clickSiguienteIMG(escenaActual, opcion);
 });
+
 window.onload = cargarPrimeraImagen(escenaActual);

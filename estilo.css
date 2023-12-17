@@ -2,57 +2,119 @@
   position: absolute;
   right: 0px;
   /* Permite ajustar automáticamente el ancho */
-  width: 25vw;
+  width: 12vw;
   /* Permite ajustar automáticamente la altura */
   height: auto;
-  top: 10vh;
-  /* Agrega espacio alrededor del contenido del div */
-  padding: 20px;
+  top: 20vh;
   /* Incluye padding y border en el ancho total */
   box-sizing: border-box;
+  z-index: 6;
 
 }
 
 #imagenEscena {
   position: absolute;
   /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
-  background-size: contain;
+  background-size: 100% 100%;
   /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
   background-repeat: no-repeat;
   /* Centra la imagen dentro del contenedor */
   background-position: center;
   /* Puedes ajustar este valor según tus necesidades */
-  max-width: 80%;
+  max-width: 100%;
   /* Puedes ajustar este valor según tus necesidades */
-  max-height: 80vh;
+  max-height: 100vh;
   /* Centra el div horizontalmente */
   margin: auto;
   /* Permite ajustar automáticamente el ancho */
-  width: 80vw;
+  width: 100vw;
   /* Permite ajustar automáticamente la altura */
-  height: 80vh;
-  bottom: 30vh;
-  top: 30vh;
-  /* Agrega espacio alrededor del contenido del div */
-  padding: 20px;
+  height: 100vh;
+
   /* Incluye padding y border en el ancho total */
   box-sizing: border-box;
+  z-index: 0;
 
 }
 
-#texto {
+#siguienteImg {
   position: absolute;
-  height: 5vh;
-  width: 20vw;
-  background-color: red;
+  display: none;
+  /* Permite ajustar automáticamente el ancho */
+  width: 73vw;
+  /* Permite ajustar automáticamente la altura */
+  height: 60vh;
+  top: 18vh;
+  left: 12vw;
+  z-index: 5;
 
 }
-
-#botonSiguiente2 {
+#imagenA{
   position: absolute;
-  background-image: url('elementos/materiales/botonSiguiente.png');
+  background-image: url('elementos/materiales/opa.png');
   /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
-  background-size: contain;
+  background-size: 100% 100%;
+  /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-repeat: no-repeat;
+  /* Centra la imagen dentro del contenedor */
+  background-position: center;
+  /* Puedes ajustar este valor según tus necesidades */
+  max-width: 100%;
+  /* Puedes ajustar este valor según tus necesidades */
+  max-height: 100vh;
+  /* Centra el div horizontalmente */
+  margin: auto;
+  /* Permite ajustar automáticamente el ancho */
+  width: 100vw;
+  /* Permite ajustar automáticamente la altura */
+  height: 100vh;
+  z-index: 1;
+}
+#imagenB{
+  position: absolute;
+  background-image: url('elementos/materiales/opb.png');
+  /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  background-size: 100% 100%;
+  /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
+  background-repeat: no-repeat;
+  /* Centra la imagen dentro del contenedor */
+  background-position: center;
+  /* Puedes ajustar este valor según tus necesidades */
+  max-width: 100%;
+  /* Puedes ajustar este valor según tus necesidades */
+  max-height: 100vh;
+  /* Centra el div horizontalmente */
+  margin: auto;
+  /* Permite ajustar automáticamente el ancho */
+  width: 100vw;
+  /* Permite ajustar automáticamente la altura */
+  height: 100vh;
+  z-index: 1;
+}
+#opcionA{
+  position: absolute;
+  height: 16vh;
+  width: 17vw;
+  bottom: 23vh;
+  left: 27vw;
+  /*background-color: brown;*/
+  z-index: 7;
+}
+#opcionB{
+  position: absolute;
+  height: 16vh;
+  width: 17vw;
+  bottom: 23vh;
+  right: 26vw;
+  /*background-color: blueviolet;*/
+  z-index: 7;
+
+}
+
+#botonVolver {
+  position: absolute;  
+  /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
+  background-size: cover;
   /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
   background-repeat: no-repeat;
   /* Centra la imagen dentro del contenedor */
@@ -65,7 +127,7 @@
 
 #botonAnterior {
   position: absolute;
-  background-image: url('elementos/materiales/botonAnterior.png');
+  /*background-image: url('elementos/materiales/botonAnterior.png');
   /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
   background-size: contain;
   /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
@@ -78,13 +140,6 @@
   left: 20vw;
 }
 
-#botonSiguiente {
-  position: absolute;
-  height: 5vh;
-  width: 15vw;
-  bottom: 2.5vh;
-  right: 4.5vw;
-}
 
 #cabecero {
   position: absolute;
@@ -98,41 +153,43 @@
   /* Puedes ajustar este valor según tus necesidades */
   max-width: 100%;
   /* Puedes ajustar este valor según tus necesidades */
-  max-height: 80vh;
+  max-height: 100vh;
   /* Centra el div horizontalmente */
   margin: auto;
   /* Permite ajustar automáticamente el ancho */
-  width: 100vw;
+  width: 100%;
   /* Permite ajustar automáticamente la altura */
-  height: 10vh;
-
+  height: 120%;
   top: 0px;
   /* Agrega espacio alrededor del contenido del div */
   padding: 20px;
   /* Incluye padding y border en el ancho total */
   box-sizing: border-box;
+  z-index: 5;
 
 }
 
 .situacion {
   /* Ancho del contenedor hijo (restar 10px para la separación) */
-  width: calc(70% - 10px);
+  width: calc(100% - 10px);
   /* Altura del contenedor hijo */
   height: 5vh;
   /* Ajusta la imagen para cubrir todo el contenedor sin distorsionar */
-  background-size: contain;
+  background-size: 100% 100%;
   /* Evita que se repita la imagen en caso de que el gif sea más pequeño que el contenedor */
   background-repeat: no-repeat;
   /* Centra la imagen dentro del contenedor */
   background-position: center;
   /* Separación entre los contenedores hijos */
-  margin-bottom: 5px;
-
+  margin-bottom: 10px;
   transition: transform 0.2s, background-image 0.2s;
 }
 
 /* Escalado de boton o mouse over*/
 .situacion:hover {
   /* Hace que el div sea un poco más grande al pasar el ratón por encima */
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+.opcion:hover{
+  transform: scale(1.05);
 }
