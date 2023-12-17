@@ -3,6 +3,7 @@ const imagenEscenaDiv = document.getElementById("imagenEscena");
 const botonA = document.getElementById("opcionA");
 const imagenA = document.getElementById("imagenA");
 const imagenEscena = document.getElementById("imagenEscena");
+const imagenAnterior = document.getElementById("botonAnterior");
 const siguienteImg = document.getElementById("siguienteImg");
 const botonB = document.getElementById("opcionB");
 
@@ -226,9 +227,9 @@ function clickAnteriorIMG(escena, op) {
   if (escenaNumero > 1) {
     escenaNumero--;
     const urlImagen = `./elementos/escena${escena}/s${escena}${op}${escenaNumero}.jpg`;
-    if (urlImagen) {
+   
       imagenEscenaDiv.style.backgroundImage = `url(${urlImagen})`;
-    }
+    
   }
 }
 // Función para manejar el clic en un número de escena
@@ -242,12 +243,14 @@ function ocultar() {
   botonB.style.display = "none";
   imagenA.style.display = "none";
   siguienteImg.style.display = "block";
+  imagenAnterior.style.display = "block";
 }
 function mostrar() {
   botonA.style.display = "block";
   botonB.style.display = "block";
   imagenA.style.display = "block";
   siguienteImg.style.display = "none";
+  imagenAnterior.style.display = "none";
 }
 // Ejecuta tus funciones cuando el DOM esté listo
 document.addEventListener(
@@ -259,15 +262,20 @@ siguienteImg.addEventListener("click", function () {
   clickSiguienteIMG(escenaActual, opcion);
 });
 
+imagenAnterior.addEventListener("click", function () {
+  // Llama a la función 
+  clickAnteriorIMG(escenaActual, opcion);
+});
+
 botonA.addEventListener("click", function () {
-  // Llama a la función clickSiguienteIMG con los parámetros deseados
+  // Llama a la función 
   opcion = "a";
   ocultar();
   clickSiguienteIMG(escenaActual, opcion);
 });
 botonB.addEventListener("click", function () {
   opcion = "b";
-  // Llama a la función clickSiguienteIMG con los parámetros deseados
+  // Llama a la función 
   ocultar();
   clickSiguienteIMG(escenaActual, opcion);
 });

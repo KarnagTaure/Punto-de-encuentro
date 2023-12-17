@@ -18,14 +18,15 @@
     <div id="opcionA" class="opcion" onmouseover="cambiarImagenFondo('./elementos/materiales/opa_on.png')"></div>
     <div id="opcionB" class="opcion" onmouseover="cambiarImagenFondo('./elementos/materiales/opb_on.png')"></div>
     <div id="siguienteImg"></div>
-
+    <div id="botonAnterior" class="opcion"></div>
+    <div id="botonVolver" class="opcion"></div>
 
     <div id="imagenEscena">
         <div id="imagenA"></div>
     </div>
 
     <div id="situaciones">
-<div id="botonVolver"></div>
+
 
     </div>
     <?php
@@ -43,6 +44,13 @@
     <script>
         var numeroDeCarpetasJS = <?php echo $numeroDeCarpetas; ?>;
         agregarSituacion(numeroDeCarpetasJS);
+
+        const volverMenu = document.getElementById('botonVolver');
+        
+
+        volverMenu.addEventListener('click', function() {
+            window.top.location.href = 'AQUI EL LINK DE LA PAGINA PRINCIPAL';
+        });
 
         function cambiarImagenFondo(nuevaImagen) {
             // Obtener el div de destino
