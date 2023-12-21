@@ -45,12 +45,6 @@
         var numeroDeCarpetasJS = <?php echo $numeroDeCarpetas; ?>;
         agregarSituacion(numeroDeCarpetasJS);
 
-        const volverMenu = document.getElementById('botonVolver');
-        
-
-        volverMenu.addEventListener('click', function() {
-            window.top.location.href = 'AQUI EL LINK DE LA PAGINA PRINCIPAL';
-        });
 
         function cambiarImagenFondo(nuevaImagen) {
             // Obtener el div de destino

@@ -7,6 +7,9 @@ const imagenAnterior = document.getElementById("botonAnterior");
 const siguienteImg = document.getElementById("siguienteImg");
 const botonB = document.getElementById("opcionB");
 
+const volverMenu = document.getElementById('botonVolver');
+        
+
 var nuevaImg = "";
 var numMax = "";
 var situacionNumID = 1;
@@ -252,6 +255,12 @@ function mostrar() {
   siguienteImg.style.display = "none";
   imagenAnterior.style.display = "none";
 }
+
+
+
+volverMenu.addEventListener('click', function() {
+    window.top.location.href = 'https://redpre.eu/punto-de-encuentro';
+});
 // Ejecuta tus funciones cuando el DOM esté listo
 document.addEventListener(
   "DOMContentLoaded",
